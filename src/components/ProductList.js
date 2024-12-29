@@ -34,7 +34,7 @@ const products = [
   },
 ];
 
-const ProductList = () => {
+const ProductSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredProducts = products.filter(product =>
@@ -43,12 +43,12 @@ const ProductList = () => {
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', color: '#333', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px', backgroundColor: '#232f3e', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
+      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px', backgroundColor: '#232f3e', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
         <div>
           <img
             src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEja7xRPh20ShY-76jSbFed4lD2GLYOLqbQggrXYnCKhyphenhyphenqhrfmuDNebOZQbPj0bfQ-r1nD6LReBDkNOOMNgOGn8jDSXwVUS7KHKZXUdWUifhZg604KKCloyzRq0Y2fZ4uLxtEIiGYIUq9kQBzYJjwob14NOGv3xNZzV-qYh_euWfsVm279Nq7Izjhyv_1CaJ/s378/1702100022771.jpg"
             alt="logo"
-            style={{ height: '50px' }}
+            style={{ height: '80px' }}
           />
         </div>
         <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
@@ -57,7 +57,7 @@ const ProductList = () => {
             id="searchInput"
             placeholder="Search..."
             onChange={(e) => setSearchTerm(e.target.value)}
-            style={{ padding: '8px 40px 8px 12px', borderRadius: '4px', border: '1px solid #ccc', width: '200px' }}
+            style={{ padding: '8px 40px 8px 12px', borderRadius: '4px', border: '1px solid #ccc', width: '150px' }}
           />
           <FaSearch style={{ position: 'absolute', right: '12px', color: '#888' }} />
         </div>
@@ -143,7 +143,7 @@ const ProductList = () => {
         ))}
       </div>
       <footer style={{ padding: '20px', backgroundColor: '#232f3e', textAlign: 'center', borderTop: '1px solid #ddd', color: '#fff' }}>
-        <p style={{ margin: '0 0 10px', fontSize: '1rem' }}>© 2024 AZ Cart. All rights reserved.</p>
+        <p style={{ margin: '0 0 10px', fontSize: '1rem' }}>© 2024 AZ Cart. Your trusted affiliate partner for top Amazon products.</p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginTop: '10px' }}>
           <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" style={{ color: '#fff', fontSize: '1.2rem' }}>
             <FaFacebook />
@@ -156,8 +156,32 @@ const ProductList = () => {
           </a>
         </div>
       </footer>
+      <style>
+  {`
+    #productsContainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    @media (max-width: 768px) {
+      #productsContainer {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px;
+        padding: 10px;
+      }
+    }
+    @media (max-width: 480px) {
+      #productsContainer {
+        grid-template-columns: repeat(1, 1fr) !important;
+      }
+    }
+  `}
+</style>
+
+
     </div>
   );
 };
 
-export default ProductList;
+export default ProductSearch;
